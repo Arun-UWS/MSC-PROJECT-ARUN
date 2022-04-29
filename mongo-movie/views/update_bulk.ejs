@@ -1,0 +1,43 @@
+<%- include layouts/header.ejs %>
+
+    <div class="page-data">
+
+        <form method="post" action="/movies/bulkUpdate">
+            <table cellpadding="11">
+                <tr>
+                    <td class="label">Limit</td>
+                    <td>: <input type="number" name="limit" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Movie</td>
+                    <td>: <input type="text" name="movie" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Year</td>
+                    <td>: <input type="text" name="year" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Genre</td>
+                    <td>: <input type="text" name="genre" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Rating</td>
+                    <td>: <input type="text" name="rating" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Comment</td>
+                    <td>: <input type="text" name="comment" required></td>
+                </tr>
+                <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Update">
+                        <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <span>Query Execution Time:- <%if(typeof data != 'undefined' ){%><%=data.executionTime%><%}%> ms</span><br><br><br>
+    </div>
+
+    <%- include layouts/footer.ejs %>

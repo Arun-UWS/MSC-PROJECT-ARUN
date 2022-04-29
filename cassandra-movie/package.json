@@ -1,0 +1,19 @@
+{
+  "name": "cassandra-movie",
+  "version": "1.0.0",
+  "description": "cassandra-project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arun",
+  "license": "ISC",
+  "dependencies": {
+    "cassandra-driver": "^4.6.3",
+    "ejs": "^1.0.0",
+    "express": "^3.5.1",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,68 @@
+<%- include layouts/header.ejs %>
+    <form method="post" action="/movies/bulkGet">
+        <table cellpadding="11">
+            <tr>
+                <td class="label">Limit</td>
+                <td>: <input type="number" name="limit" required></td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    &nbsp; <input type="submit" name="submit" value="Save">
+                    <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div class="page-data">
+        <div class="data-btn">
+            <button onClick="addBulk();">+ Add Bulk</button>
+            <button onClick="deleteBulk();">+ Delete Bulk</button>
+            <button onClick="updateBulk();">+ Update Bulk</button>
+            <button onClick="cancelAdd();">+ Get All List</button>
+        </div><br>
+        <div class="data-table">
+            <span>Query Response Time:- <%=(data.queryTime)%> ms</span><br><br>
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Movie</th>
+                    <th width="80px">Year</th>
+                    <th width="80px">Genre</th>
+                    <th width="30px">Rating</th>
+                    <th>Comment</th>
+                </tr>
+                <% if(data.data.length){ for(var i=0;i < data.data.length;i++) { %>
+
+                    <tr>
+                        <td>
+                            <%=(i+1)%>
+                        </td>
+                        <td>
+                            <%=data.data[i].movie%>
+                        </td>
+                        <td>
+                            <%=data.data[i].year%>
+                        </td>
+                        <td>
+                            <%=data.data[i].genre%>
+                        </td>
+                        <td>
+                            <%=data.data[i].rating%>
+                        </td>
+                        <td>
+                            <%=data.data[i].comment%>
+                        </td>
+                    </tr>
+                    <% } }else{ %>
+                        <tr>
+                            <td colspan="6">No data available</td>
+                        </tr>
+                        <% } %>
+
+            </table>
+        </div>
+    </div>
+    <br>
+
+    <%- include layouts/footer.ejs %>

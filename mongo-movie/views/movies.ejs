@@ -1,0 +1,55 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addBulk();">+ Add Bulk</button>
+           <button onClick="deleteBulk();">+ Delete Bulk</button>
+           <button onClick="updateBulk();">+ Update Bulk</button>
+           <button onClick="getBulk();">+ Get By Limit</button>
+          <!-- <button onClick="addBulk();">+ Add</button>  -->
+         </div><br>
+         <div class="data-table">
+             <span>Query Time:- <%=(data.queryTime)%> ms</span><br><br><br>
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Movie</th>
+                    <th width="80px">Year</th>
+                    <th width="80px">Genre</th>
+                    <th width="30px">Rating</th>
+                    <th>Comment</th>
+                    <th width="160px">Action</th>
+                </tr>
+               
+                <% if(data.data.length){ 
+                                
+                 for(var i = 0;i < data.data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data.data[i].movie%></td>
+                    <td><%=data.data[i].year%></td>
+                    <td><%=data.data[i].genre%></td>
+                    <td><%=data.data[i].rating%></td>
+                    <td><%=data.data[i].comment%></td>
+                    <td>
+                        <a class="a-inside edit" href="../movies/edit/<%=data.data[i].id%>">Update</a>
+                       
+                        <a class="a-inside delete" href="../movies/delete/<%=data.data[i].id%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="6">No data available</td>
+                 </tr>
+            <% } %>
+                
+            </table>
+         </div>
+        </div>
+        <br>
+ 
+<%- include layouts/footer.ejs %>
